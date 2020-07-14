@@ -1,0 +1,45 @@
+import java.io.*;
+import java.math.*;
+import java.security.*;
+import java.text.*;
+import java.util.*;
+import java.util.concurrent.*;
+import java.util.regex.*;
+
+public class Solution{
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+       
+        int n = scanner.nextInt();
+        int[] arr = new int[n];
+        for (int i = 0; i < n; i++) {
+            arr[i] = scanner.nextInt();
+        }
+      
+        int p = arr[0];
+        
+        ArrayList<Integer> left = new ArrayList<Integer>();
+        ArrayList<Integer> equal = new ArrayList<Integer>();
+        ArrayList<Integer> right = new ArrayList<Integer>();
+       
+        for (int i = 0; i < n; i++) {
+            if (arr[i] == p) {
+                equal.add(arr[i]);
+            }
+            else if (arr[i] < p) {
+                left.add(arr[i]);
+            } 
+            else {
+                right.add(arr[i]);
+            }
+        }
+       
+        left.addAll(equal);
+        left.addAll(right);
+       
+        for(int a : left)
+            System.out.print(a + " "); 
+
+        scanner.close();
+    }
+}
